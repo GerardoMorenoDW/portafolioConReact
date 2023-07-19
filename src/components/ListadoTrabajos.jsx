@@ -2,11 +2,11 @@ import React from 'react';
 import { trabajos } from '../data/trabajos';
 import { Link } from 'react-router-dom';
 
-export const ListadoTrabajos = (limite) => {
+export const ListadoTrabajos = ({limite}) => {
   return (
-      <div className='proyectos'>
+      <section className='proyectos'>
         {
-          trabajos.map(trabajo => {
+          trabajos.slice(0, limite).map(trabajo => {
             return(
               <article className='proyecto' key={trabajo.id}>
                 <div className='proyecto-imagen'>
@@ -17,9 +17,10 @@ export const ListadoTrabajos = (limite) => {
                 <h3>{trabajo.tecnologias}</h3>
               </article>
             );
+        
           })
         }
-      </div>
+      </section>
 
   )
 }
